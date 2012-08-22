@@ -1,0 +1,37 @@
+{
+  "name": "data-bind",
+  "version": "0.0.1",
+  "description": "Data bind objects to elements",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Raynos/data-bind.git",
+  "main": "index",
+  "homepage": "https://github.com/Raynos/data-bind",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Raynos/data-bind/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {
+    "dom-walk": "0.0.1",
+    "iterators": "~0.2.0"
+  },
+  "devDependencies": {
+    "browserify-server": "~1.0.2",
+    "crdt": "~1.7.1",
+    "fragment": "~0.2.0",
+    "live-reload": "0.0.1",
+    "ap": "~0.1.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/data-bind/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {}
+}
