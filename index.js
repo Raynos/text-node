@@ -7,8 +7,6 @@ module.exports = databind
 function databind(elem, row) {
     var nodes = {}
 
-    console.log("elem", elem)
-
     walk([elem], addToSet)
 
     row.on("changes", update)
