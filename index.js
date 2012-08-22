@@ -13,6 +13,10 @@ function databind(elem, row) {
 
     row.on("changes", update)
 
+    if (row.get) {
+        update(null, row.get())
+    }
+
     function addToSet(node) {
         if (!node.dataset) {
             return
@@ -31,7 +35,7 @@ function databind(elem, row) {
         nodes[key].push(node)
     }
 
-    function update(changes, changed) {
+    function update(_, changed) {
         forEach(changed, updateNodes)
     }
 
