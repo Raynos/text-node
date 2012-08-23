@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/Raynos/data-bind.png)](http://travis-ci.org/Raynos/data-bind)
 # data-bind
 
 Data bind objects to elements
