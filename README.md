@@ -6,14 +6,13 @@ Data bind objects to elements
 
 ``` js
 var elem = document.getElementById("thing")
-    , row = new EventEmitter()
 
-databind(elem, row)
+var stream = databind(elem)
 
-row.emit("changes", null, {
+stream.write([{
     one: "goes in data-one span"
     , two: "goes in data-two span"
-})
+}])
 ```
 
 ``` html

@@ -1,19 +1,20 @@
 var walk = require("dom-walk")
     , forEach = require("iterators").forEachSync
+    , DeltaStream = require("delta-stream")
     , Node = window.Node
 
 module.exports = databind
 
-function databind(elem, row) {
+function databind(elem) {
     var nodes = {}
+        , stream = DeltaStream()
+        , other = stream.other
+
+    other.on("data", update)
 
     walk([elem], addToSet)
 
-    row.on("changes", update)
-
-    if (row.get) {
-        update(null, row.get())
-    }
+    return stream
 
     function addToSet(node) {
         if (!node.dataset) {
@@ -33,8 +34,10 @@ function databind(elem, row) {
         nodes[key].push(node)
     }
 
-    function update(_, changed) {
-        forEach(changed, updateNodes)
+    function update(data) {
+        var changes = data[0]
+
+        forEach(changes, updateNodes)
     }
 
     function updateNodes(value, key) {

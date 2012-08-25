@@ -3,23 +3,22 @@ var html = require("./snippet")
     , Fragment = require("fragment")
     , curry = require("ap").curry
 
-var update = curry(function (name, row, field) {
-    var changed = {}
-    changed[name] = field.value
-    row.emit("changes", {}, changed)
+var update = curry(function (name, stream, field) {
+    var changes = {}
+    changes[name] = field.value
+    stream.write([changes])
 })
 
 module.exports = Widget
 
-function Widget(row) {
+function Widget() {
     var elem = Fragment(html)
         , foo = elem.querySelector("#foo")
         , bar = elem.querySelector("#bar")
+        , stream = bind(elem)
 
-    bind(elem, row)
-
-    foo.addEventListener("keyup", update("foo", row, foo))
-    bar.addEventListener("keyup", update("bar", row, bar))
+    foo.addEventListener("keyup", update("foo", stream, foo))
+    bar.addEventListener("keyup", update("bar", stream, bar))
 
     return {
         appendTo: appendTo
