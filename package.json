@@ -1,6 +1,6 @@
 {
   "name": "data-bind",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Data bind objects to elements",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "dom-walk": "0.0.1",
-    "iterators": "~0.2.0"
+    "iterators": "~0.2.0",
+    "delta-stream": "~0.1.0"
   },
   "devDependencies": {
     "browserify-server": "~1.0.2",
-    "crdt": "~1.7.1",
     "fragment": "~0.2.0",
     "live-reload": "0.0.1",
     "ap": "~0.1.0"
