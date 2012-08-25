@@ -27,9 +27,12 @@ stream.write([{
 ``` js
 var doc = new crdt.Doc()
     , row = doc.get(rowId)
+    , rowStream = row.createStream()
     , elem = someElement
 
-databind(elem, row)
+var stream = databind(elem)
+
+rowStream.pipe(stream)
 ```
 
 ## Installation
