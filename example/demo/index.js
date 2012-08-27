@@ -1,5 +1,5 @@
 var html = require("./snippet")
-    , bind = require("../../index")
+    , TextNode = require("../../index")
     , Fragment = require("fragment")
     , curry = require("ap").curry
 
@@ -15,7 +15,7 @@ function Widget() {
     var elem = Fragment(html)
         , foo = elem.querySelector("#foo")
         , bar = elem.querySelector("#bar")
-        , stream = bind(elem)
+        , stream = TextNode(elem)
 
     foo.addEventListener("keyup", update("foo", stream, foo))
     bar.addEventListener("keyup", update("bar", stream, bar))

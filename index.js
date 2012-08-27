@@ -3,9 +3,9 @@ var walk = require("dom-walk")
     , DeltaStream = require("delta-stream")
     , Node = window.Node
 
-module.exports = databind
+module.exports = TextNode
 
-function databind(elem) {
+function TextNode(elem) {
     var nodes = {}
         , stream = DeltaStream()
         , other = stream.other

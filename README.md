@@ -1,13 +1,13 @@
-# data-bind
+# text-node
 
-Data bind objects to elements
+A delta stream which writes to text nodes
 
 ## Example
 
 ``` js
 var elem = document.getElementById("thing")
 
-var stream = databind(elem)
+var stream = TextNode(elem)
 
 stream.write([{
     one: "goes in data-one span"
@@ -22,17 +22,13 @@ stream.write([{
 </div>
 ```
 
-## Example with crdt row
+## Example with delta stream
 
 ``` js
-var doc = new crdt.Doc()
-    , row = doc.get(rowId)
-    , rowStream = row.createStream()
+var deltas = someDeltaStream
     , elem = someElement
 
-var stream = databind(elem)
-
-rowStream.pipe(stream)
+deltas.pipe(TextNode(elem))
 ```
 
 ## Installation
