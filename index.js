@@ -1,16 +1,13 @@
 var walk = require("dom-walk")
     , forEach = require("iterators").forEachSync
-    , DeltaStream = require("delta-stream")
+    , through = require("through")
     , Node = window.Node
 
 module.exports = TextNode
 
 function TextNode(elem) {
     var nodes = {}
-        , stream = DeltaStream()
-        , other = stream.other
-
-    other.on("data", update)
+        , stream = through(update)
 
     walk([elem], addToSet)
 
