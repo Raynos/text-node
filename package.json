@@ -1,6 +1,6 @@
 {
   "name": "text-node",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A delta stream which writes to text nodes",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
