@@ -33,7 +33,7 @@ deltas.pipe(TextNode(elem))
 
 ## Installation
 
-`npm install data-bind`
+`npm install text-node`
 
 ## Contributors
 
