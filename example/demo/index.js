@@ -3,10 +3,8 @@ var html = require("./snippet")
     , Fragment = require("fragment")
     , curry = require("ap").curry
 
-var update = curry(function (name, stream, field) {
-    var changes = {}
-    changes[name] = field.value
-    stream.write([changes])
+var update = curry(function (name, delta, field) {
+    delta.set(name, field.value)
 })
 
 module.exports = Widget
@@ -15,10 +13,10 @@ function Widget() {
     var elem = Fragment(html)
         , foo = elem.querySelector("#foo")
         , bar = elem.querySelector("#bar")
-        , stream = TextNode(elem)
+        , delta = TextNode(elem)
 
-    foo.addEventListener("keyup", update("foo", stream, foo))
-    bar.addEventListener("keyup", update("bar", stream, bar))
+    foo.addEventListener("keyup", update("foo", delta, foo))
+    bar.addEventListener("keyup", update("bar", delta, bar))
 
     return {
         appendTo: appendTo

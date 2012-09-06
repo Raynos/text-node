@@ -19,7 +19,8 @@
   "dependencies": {
     "dom-walk": "0.0.1",
     "iterators": "~0.2.0",
-    "through": "~0.1.4"
+    "through": "~0.1.4",
+    "delta-stream": "~1.2.1"
   },
   "devDependencies": {
     "browserify-server": "~1.0.2",

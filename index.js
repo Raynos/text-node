@@ -1,17 +1,19 @@
 var walk = require("dom-walk")
     , forEach = require("iterators").forEachSync
-    , through = require("through")
+    , Delta = require("delta-stream")
     , Node = window.Node
 
 module.exports = TextNode
 
 function TextNode(elem) {
     var nodes = {}
-        , stream = through(update)
+        , delta = Delta()
+
+    delta.on("change", updateNodes)
 
     walk([elem], addToSet)
 
-    return stream
+    return delta
 
     function addToSet(node) {
         if (!node.dataset) {
@@ -31,13 +33,7 @@ function TextNode(elem) {
         nodes[key].push(node)
     }
 
-    function update(data) {
-        var changes = data[0]
-
-        forEach(changes, updateNodes)
-    }
-
-    function updateNodes(value, key) {
+    function updateNodes(key, value) {
         if (!nodes[key]) {
             return
         }

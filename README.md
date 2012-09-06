@@ -7,12 +7,10 @@ A delta stream which writes to text nodes
 ``` js
 var elem = document.getElementById("thing")
 
-var stream = TextNode(elem)
+var delta = TextNode(elem)
 
-stream.write([{
-    one: "goes in data-one span"
-    , two: "goes in data-two span"
-}])
+delta.set("one", "goes in data-one span")
+delta.set("two", "goes in data-two span")
 ```
 
 ``` html
@@ -22,18 +20,18 @@ stream.write([{
 </div>
 ```
 
-## Example with delta stream
+## Example with scuttlebutt
 
 ``` js
-var deltas = someDeltaStream
+var scutt = someScuttlebuttStream
     , elem = someElement
 
-deltas.pipe(TextNode(elem))
+scutt.pipe(TextNode(elem).createStream())
 ```
 
 ## Installation
 
-`npm install data-bind`
+`npm install text-node`
 
 ## Contributors
 
